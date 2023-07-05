@@ -42,9 +42,9 @@ channels:\n\
 WORKDIR $APP_HOME
 COPY environment.yml .
 RUN conda env create -f environment.yml
-SHELL ["conda", "run", "-n", "read-met-office", "--no-capture-output", "/bin/bash", "-c"]
+SHELL ["conda", "run", "-n", "read-ea", "--no-capture-output", "/bin/bash", "-c"]
 
-COPY read_met_office.py ./
+COPY read_ea.py ./
 COPY write_output_metadata.py ./
 COPY run.sh ./
 #COPY requirements.txt ./
@@ -55,4 +55,4 @@ COPY run.sh ./
 # Entry point
 ENV READ_MET_OFFICE_ENV=docker
 WORKDIR $APP_HOME
-CMD ["conda", "run", "-n", "read-met-office", "--no-capture-output", "/bin/bash", "run.sh"]
+CMD ["conda", "run", "-n", "read-ea", "--no-capture-output", "/bin/bash", "run.sh"]

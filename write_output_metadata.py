@@ -21,8 +21,7 @@ else:
     data_path = os.getenv("DATA_PATH", "./data")
 
 # INPUT paths
-step_in_path = data_path / pathlib.Path("inputs")
-in_path = data_path / pathlib.Path("stage_one") / pathlib.Path("outputs")
+in_path = data_path / pathlib.Path("inputs")
 
 # OUTPUT paths
 out_path = data_path / pathlib.Path("outputs")
@@ -31,8 +30,8 @@ out_path = data_path / pathlib.Path("outputs")
 ###############################################################################
 # Metadata definition
 ###############################################################################
-app_title = "pyramid-read-external"
-app_description = "Default dataslot test output"
+app_title = "pyramid-read-ea"
+app_description = "Environment Agency rainfall gauge data"
 metadata = f"""{{
   "@context": ["metadata-v1"],
   "@type": "dcat:Dataset",
@@ -93,6 +92,6 @@ metadata = f"""{{
 ###############################################################################
 # Write metadata file
 ###############################################################################
-with open(os.path.join(out_path, 'metadata.json'), 'w') as f:
+with open(os.path.join(out_path, 'EA', 'metadata.json'), 'w') as f:
     f.write(metadata)
 

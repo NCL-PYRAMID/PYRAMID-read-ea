@@ -1,47 +1,57 @@
 kind: M
 api_version: v1beta2
 metadata:
-  display_name: PYRAMID <model> read ea
+  display_name: PYRAMID <model> read Environment Agency
   name: pyramid-read-ea
   publisher: PYRAMID
-  summary: PYRAMID DAFNI model for reading Environment Agency rainfall gauge data
+  summary: PYRAMID DAFNI model for reading gauge rainfall from the Environment Agency
   description: >
-    This model reads radar rainfall data from the Environment Agency API at http://environment.data.gov.uk/
+    This model reads radar rainfall data from the EA API http://environment.data.gov.uk/
 
     Model repository: https://github.com/NCL-PYRAMID/PYRAMID-read-ea
 spec:
   inputs:
     parameters:
-      - name: START_YEAR
-        title: Start Year
-        description: The year at which the Model execution should start.
-        type: integer
-        default: 2015
-        min: 2010
-        max: 2020
-        required: true
-
-      - name: END_YEAR
-        title: End Year
-        description: The year at which the Model execution should stop.
-        type: integer
-        default: 2025
-        min: 2020
-        max: 2030
-        required: true
-
-      - name: START_TIME
-        title: Start Time
-        description: Start time for data gathering
+      - name: RUN_START_DATE
+        title: Start date
+        description: The date at which the Model execution should start.
         type: string
-        default: "2016-09-07T15:00:00Z"
+        default: "2023-06-20"
         required: true
 
-      - name: LIMIT
-        title: Limit
-        description: Limit of data gathering
+      - name: RUN_END_DATE
+        title: End date
+        description: The date at which the Model execution should stop.
         type: string
-        default: "500"
+        default: "2023-06-30"
+        required: true
+      
+      - name: BB_E_L
+        title: Bounding Box Easting Lower
+        description: Analysis region bounding box Easting lower value
+        type: integer
+        default: 355000
+        required: true
+
+      - name: BB_N_L
+        title: Bounding Box Northing Lower
+        description: Analysis region bounding box Northing lower value
+        type: integer
+        default: 534000
+        required: true
+
+      - name: BB_E_U
+        title: Bounding Box Easting Upper
+        description: Analysis region bounding box Easting upper value
+        type: integer
+        default: 440000
+        required: true
+
+      - name: BB_N_U
+        title: Bounding Box Northing Upper
+        description: Analysis region bounding box Northing lower value
+        type: integer
+        default: 609000
         required: true
 
       - name: READ_MODE
@@ -51,9 +61,10 @@ spec:
         default: true
         required: false
 
+
   outputs:
     datasets:
-      - name: PYRAMID <dataset> Environment Agency RAinfall Gauge Data
+      - name: PYRAMID <dataset> Environment Agency rainfall gauge data
         type: txt
         description: >
-        Rainfall gauge data read from Environment Agency API http://environment.data.gov.uk/
+        Rainfall gauge data read from Environment Agency http://environment.data.gov.uk/
