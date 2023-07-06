@@ -2,7 +2,7 @@
 Application to read Environment Agency 15 minute rain gauge data
 
 ## About
-This application reads 15 minute ran gauge data from the Environment Agency
+This application reads 15 minute rain gauge data from the Environment Agency
 
 ### Notes
 - Intense QC code read in, not sure how easy that will be, I had to clone it off Github and change line 10 of code as got an error with a package, probably due to Python versions. Think the package needs updating on Github but not sure who is still in charge of maintaining it. Need ETCCDI data (available in example data for Intense QC)
