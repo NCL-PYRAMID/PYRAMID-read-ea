@@ -1,7 +1,7 @@
 kind: M
 api_version: v1beta2
 metadata:
-  display_name: PYRAMID <model> read Environment Agency
+  display_name: PYRAMID <model> Read Environment Agency Gauge Rainfall
   name: pyramid-read-ea
   publisher: PYRAMID
   summary: PYRAMID DAFNI model for reading gauge rainfall from the Environment Agency
