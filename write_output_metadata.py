@@ -14,7 +14,7 @@ import datetime
 # Paths
 ###############################################################################
 # Setup base path
-platform = os.getenv("READ_EXTERNAL_ENV")
+platform = os.getenv("READ_EA_ENV")
 if platform=="docker":
     data_path = os.getenv("DATA_PATH", "/data")
 else:
