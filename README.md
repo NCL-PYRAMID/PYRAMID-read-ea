@@ -93,7 +93,7 @@ The `pyramid-read-ea.tar.gz` Docker image and accompanying DAFNI model definitio
 As of 05/07/2023 the read-ea DAFNI parent model UUID is
 | Model | UUID |
 | --- | --- |
-| read-ea | c7c62a8e-543f-46fc-ab68-fe96ed88c715 |
+| read-ea | c0fb7aa4-d000-48e9-b109-1e4cf1a20018 |
 
 #### CI/CD with GitHub Actions
 The model can be deployed to DAFNi using GitHub Actions. The relevant workflows are built into the model repository and use the [DAFNI Model Uploader Action](https://github.com/dafnifacility/dafni-model-uploader) to update the DAFNI model. The workflows trigger on the creation of a new release tag which follows [semantic versioning](https://semver.org/) and takes the format `vx.y.z` where `x` is a major release, `y` a minor release, and `z` a patch release.
