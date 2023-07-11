@@ -31,21 +31,10 @@ EA_SUCCESS_FILENAME = "success"
 EA_LOG_FILENAME = "read-ea.log"
 
 
-###############################################################################
-# Parameters
-###############################################################################
 
-# Dates for files
-start_date = os.getenv("RUN_START_DATE", "2023-06-20")
-end_date = os.getenv("RUN_END_DATE", "2023-06-30")
-
-# Bounding box for data
-# e_l, n_l, e_u, n_u = [355000, 534000, 440000, 609000]
-e_l = os.getenv("BB_E_L", 355000)
-n_l = os.getenv("BB_N_L", 534000)
-e_u = os.getenv("BB_E_U", 440000)
-n_u = os.getenv("BB_N_U", 609000)
-bbox = [e_l, e_u, n_l, n_u]
+###############################################################################
+# Paths
+###############################################################################
 
 # Output paths to save files
 platform = os.getenv("READ_EA_ENV")
@@ -65,6 +54,8 @@ if os.path.isfile(os.path.join(output_path, EA_LOG_FILENAME)):
 
 output_path_15min = os.path.join(output_path, "15min")
 os.makedirs(output_path_15min, exist_ok=True)
+
+
 
 ###############################################################################
 # Logging
@@ -96,6 +87,31 @@ logger.info("Logger initialised")
 # Some additional logging info
 logger.info("DATA_PATH = {}".format(data_path))
 logger.info("output_path = {}".format(output_path))
+
+
+
+###############################################################################
+# Other Parameters
+#   Remember that parameters are passed as environment variables,
+#   i.e. they are strings and will need to be converted
+###############################################################################
+
+# Dates for files
+start_date = os.getenv("RUN_START_DATE", "2023-06-20")
+end_date = os.getenv("RUN_END_DATE", "2023-06-30")
+
+# Bounding box for data
+# e_l, n_l, e_u, n_u = [355000, 534000, 440000, 609000]
+try:
+    e_l = int(os.getenv("BB_E_L", "355000"))
+    n_l = int(os.getenv("BB_N_L", "534000"))
+    e_u = int(os.getenv("BB_E_U", "440000"))
+    n_u = int(os.getenv("BB_N_U", "609000"))
+    bbox = [e_l, e_u, n_l, n_u]
+except (TypeError, ValueError, Exception) as e:
+    logger.error("Error converting environmental parameters: {}".format(e))
+    raise
+
 
 
 ###############################################################################
